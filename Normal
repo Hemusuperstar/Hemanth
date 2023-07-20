@@ -1,0 +1,47 @@
+Practical 6:
+1)1000 students problem.... 
+
+Code:
+
+from scipy.stats import norm
+
+1)1000*(norm.sf(40, 35,5)) 
+
+2) 1000*(norm.cdf(20, 35,5)) 
+
+3)1000*norm.sf(50,35, 5) 
+
+4)1000*[norm.cdf(25, 35,5) +norm.cdf(40, 35,5)]
+
+2) 2000 electric bulbs problem..... 
+
+Code:
+
+from scipy.stats import norm
+
+
+1)2000*norm.sf(2140, 2040,40) 
+
+2) 2000*[norm.cdf(2080, 2040,40) -norm.cdf(2050, 2040,40)]
+
+3) 2000*(norm.cdf(1960, 2040,40)) 
+
+4) from scipy.stats import norm 
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.get_dataset_names() 
+data=sns.load_dataset('iris') 
+data
+x=list(data['sepal_length']) 
+x.sort() 
+mean=np.mean(x) 
+print("mean:", mean) 
+std=np.std(x) 
+print("standard deviation:", std) 
+fitted_data=norm.pdf(x, mean, std) 
+plt.plot(x, fitted_data) 
+plt.title("Normal plot") 
+plt.xlabel("sepal_length") 
+plt.ylabel("fitted_data") 
+plt.show()
