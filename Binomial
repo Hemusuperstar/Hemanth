@@ -1,0 +1,34 @@
+Practical 4
+
+1) items produced in factory
+
+Source code : 
+ 
+From scipy.stats import binom
+
+a) binom.pmf(2, 8,0.05) 
+b) binom.sf(2, 8,0.05) 
+c) binom.cdf(3, 8,0.05) 
+d) from numpy import random
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+sns.distplot(random.binomial(n=10, p=0.5, size=1000), hist=True) 
+
+sns.distplot(random.binomial(n=10, p=0.5, size=1000), hist=True, Kde = false) 
+
+2) Probability that a man
+
+a) binom.cdf(5, 6,0.33) 
+b) binom.sf(5, 6,0.33) 
+c) binom.pmf(1, 6,0.33) 
+d) x=binom.cdf(2, 6,0.33) 
+     y=binom.cdf(5, 6,0.33) 
+     y-x
+e) from numpy import random
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+sns.distplot(random.binomial(n=6, p=0.6, size=1000), hist=True) 
+
+sns.distplot(random.binomial(n=6, p=0.6, size=1000), hist=True, Kde=False)
