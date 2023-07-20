@@ -1,0 +1,16 @@
+//Simple linear regression model
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import statsmodels.formula.api as smf
+import scipy.stats as stats
+sns.get_dataset_names()
+data=sns.load_dataset('iris')
+data
+data.plot(kind='scatter',x='sepal_length',y='petal_width')
+data.corr()
+model=smf.ols('petal_width~sepal_length',data=data)
+model=model.fit()
+print(model.summary())
+print(model.params)
