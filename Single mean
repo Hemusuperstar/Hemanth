@@ -1,0 +1,145 @@
+PRACTICAL N0-7
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PRACTICAL NO-8
+Z - Test of Single Mean:
+
+1. A random sample of 64 students have mean weight of 70 kgs. Can this be regarded as a sample from a normal population with mean weight 56 kgs and 25 kgs. Test at 5% l.o.s.
+
+Program:
+#z test for single mean
+#H0: mu = 56
+#H1: mu != 56
+import numpy as np
+import scipy.stats as st
+n=64
+x=70
+mu=56
+s=25
+a=0.05
+ztest=(x-mu)/(s/np.sqrt(n))
+cval=st.norm.isf(a/2)
+print("z test = ",ztest)
+print("critical value = ",cval)
+if(abs(ztest)>cval):
+print("Reject H0")
+else:print("Accept H0")
+
+
+Output:
+ 	z test =  4.48
+	critical value =  1.9599639845400545
+	Reject H0
+
+
+
+2.In a random sample of 60 workers the average time taken by them to complete a work is 33.8 minutes with standard deviation of 6.1 minutes. Can we reject the null hypothesis that population mean time is more than 32.6 minutes. Test at 1% l.o.s.
+
+
+Program:
+#z test for single mean
+#H0: mu = 32.6
+#H1: mu > 32.6
+import numpy as np
+import scipy.stats as st
+n=60
+x=33.8
+mu=32.6
+s=6.1
+a=0.01
+ztest=(x-mu)/(s/np.sqrt(n))
+cval=st.norm.isf(a)
+print("z test = ",ztest)
+print("critical value = ",cval)
+if(ztest>cval):
+print("Reject H0")
+else:print("Accept H0")
+
+
+Output:
+	z test =  1.5237967263766834
+	critical value =  2.3263478740408408
+	Accept H0
+
+
+
+
+PRACTICAL NO-9
+Z - Test for Difference of Means:
+
+1. A researcher wants to know the intelligence of students from 2 groups. In first group there are 150 students having mean IQ of 75 with standard deviation of 15. In another group there are 250 students with mean IQ of 70, standard deviation of 20. Test whether the average intelligence of 2 groups are significant or not.
+
+
+Program:
+#z test for difference of  means
+#H0: mu1 = mu2
+#H1: mu1 != mu2
+import numpy as np
+import scipy.stats as st
+n1=150
+x1=75
+s1=15
+n2=250
+x2=70
+s2=20
+a=0.05
+ztest=(x1-x2)/np.sqrt((s1**2/n1)+(s2**2/n2))
+cval=st.norm.isf(a/2)
+print("z test = ",ztest)
+print("critical value = ",cval)
+if(abs(ztest)>cval):
+print("Reject H0")
+else:print("Accept H0")
+
+
+Output:
+	z test =  2.839809171235324
+	critical value =  1.9599639845400545
+	Reject H0
+
+
+2. A sample of 6400 English men have a mean height of 67.85 inches with a standard deviation of 2.56 inches. While a sample of 1600 Australians have a mean of 68.55 inches with standard deviation of 2.52 inches. Do the data indicate that Australians are on average taller than English men at 5% l.o.s.
+
+
+Program:
+#z test for difference of  means
+#H0: mu1 = mu2
+#H1: mu1 < mu2
+import numpy as np
+import scipy.stats as st
+n1=6400
+x1=67.85
+s1=2.56
+n2=1600
+x2=68.55
+s2=2.52
+a=0.05
+ztest=(x1-x2)/np.sqrt((s1**2/n1)+(s2**2/n2))
+cval=st.norm.isf(a)
+print("z test = ",ztest)
+print("critical value = ",cval)
+if(ztest<-cval):
+print("Reject H0")
+else:print("Accept H0")
+
+
+Output:
+	z test =  -9.906431867695341
+	critical value =  1.6448536269514729
+	Reject H0
