@@ -1,0 +1,86 @@
+//Histogram
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import scipy.stats as stats
+sns.get_dataset_names()
+data=sns.load_dataset('iris')
+data
+plt.hist(data['sepal_length'],color='red',edgecolor='white',bins=8)
+intervals=(4,4.5,5,5.5,6,6.5,7,7.5,8)
+plt.hist(data['sepal_length'],color='red',edgecolor='white',bins=intervals)
+plt.title("Histogram")
+plt.xlabel("class interval")
+plt.ylabel("Frequency")
+plt.show()
+
+//Box Plot
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import scipy.stats as stats
+sns.get_dataset_names()
+data=sns.load_dataset('iris')
+data
+plt.boxplot(data['sepal_length'])
+plt.title("Box plot")
+plt.xlabel("sepal length")
+plt.ylabel("descriptive statistics")
+plt.show()
+
+//Scatter plot
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import scipy.stats as stats
+sns.get_dataset_names()
+data=sns.load_dataset('iris')
+data
+plt.scatter(data['sepal_length'],data['petal_length'],c='green')
+plt.title("scatter plot")
+plt.xlabel("sepal length")
+plt.ylabel("petal_length")
+plt.show()
+
+//Q-Q plot
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import scipy.stats as stats
+sns.get_dataset_names()
+data=sns.load_dataset('iris')
+data
+data['sepal_length'].plot(kind='kde')
+stats.probplot(data['sepal_length'],dist='norm',plot=plt)
+plt.title("Q-Q plot")
+plt.show()
+
+//Central tendency -1 
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import scipy.stats as stats
+sns.get_dataset_names()
+data=sns.load_dataset('iris')
+data
+data['sepal_length'].mean()
+data['sepal_length'].median()
+data['sepal_length'].round().mode()
+
+//Central tendency -2
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import scipy.stats as stats
+sns.get_dataset_names()
+data=sns.load_dataset('mpg')
+data
+data['displacement'].mean()
+data['displacement'].median()
+data['displacement'].mode()
