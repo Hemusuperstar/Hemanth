@@ -1,0 +1,52 @@
+ # A manufacturer claimed that more than 85% of equipment which is supplied
+# to a factory confirmed for specifications.An examination of a sample of 
+# 20 pieces of equipment revealed that 18 where faulty.Test his claim at 5% los
+
+import numpy as np
+import scipy.stats as stats
+
+n=20
+x=18
+P=0.85
+p=x/n
+Q=1-P
+alpha = 0.05
+
+teststatistic = (p-P)/(np.sqrt((P*Q)/n))
+print(teststatistic)
+
+criticalvalue = stats.norm.isf(alpha)
+print(criticalvalue)
+
+if(teststatistic < criticalvalue):
+    print("Accept H0")
+else : 
+    print("Reject H0")
+0.62622429108515
+1.6448536269514729
+Accep H0
+# A manufacturer of electric bulbs claims that the % of defectives in his product doesnot exceed 60%. A sample of 40 
+# bulbs is found to contain 5 defectives , would you consider the claim,justify ?
+
+n=40
+P=0.60
+x=5
+p=x/n
+Q=1-P
+alpha = 0.05
+
+import numpy as np
+import scipy.stats as stats
+teststatistic = (p-P)/np.sqrt((P*Q)/n)
+print(teststatistic)
+
+criticalvalue = -stats.norm.isf(alpha)
+print(criticalvalue)
+
+if(teststatistic > criticalvalue):
+    print("Accept H0")
+else :
+    print("Reject H0")
+-6.132223631495076
+-1.6448536269514729
+Reject H0
