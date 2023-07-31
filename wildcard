@@ -1,0 +1,47 @@
+import java.util.*;
+ public class Sample<T extends Number>
+ {
+ T[] nums;
+ public Sample(T[] nums){
+ this.nums=nums;
+ }
+ public double sum(){
+ double s=0.0;
+ for(Number n:nums){
+ s+=n.doubleValue();
+ }
+ return s;
+ }
+ public boolean compareSum(Sample<?> s1){
+ if(this.sum()==s1.sum())
+ return true;
+ else
+ return false;
+ }
+ public static void main(String[] args)
+ {
+ Scanner sc=new Scanner(System.in);
+ System.out.println("Enter array size:");
+ int n=sc.nextInt();
+ Integer[] arr=new Integer[n];
+ System.out.println("Enter array elements:");
+ for(int i=0;i<n;i++)
+ {
+ arr[i]=sc.nextInt();
+ }
+ Sample<Number> s=new Sample<>(arr);
+ System.out.println("Sum1:"+s.sum());
+ System.out.println("Enter array size:");
+ int n1=sc.nextInt();
+ Integer[] arr1=new Integer[n1];
+ System.out.println("Enter array elements:");
+ for(int i=0;i<n1;i++){
+ arr1[i]=sc.nextInt();
+ }
+
+ Sample<Number> s1=new Sample<>(arr1);
+ System.out.println("Sum1:"+s1.sum());
+ System.out.println("Sum1 equals sum2:"+s.compareSum(s1));
+ sc.close();
+ }
+}
