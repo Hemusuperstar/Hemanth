@@ -1,0 +1,46 @@
+import java.util.*;
+public class BoyerMoore{
+ public static int find(String text,String pattern){
+ int n=text.length();
+ int m=pattern.length();
+ HashMap<Character,Integer> h=new HashMap<>();
+ for(int i=0;i<n;i++)
+ h.put(text.charAt(i),-1);
+ for(int k=0;k<m;k++)
+ h.put(pattern.charAt(k),k);
+ int i=m-1;
+ int k=m-1;
+ int j;
+ while(i<n){
+ if(text.charAt(i)==pattern.charAt(k)){
+ if(k==0)
+ return i;
+ i--;
+ k--;
+ }
+else{
+ j=h.get(text.charAt(i));
+ if(j==-1)
+ i+=m;
+ else if(j<k)
+ i=i+m-(j+1);
+ else
+ i=i+m-k;
+ k=m-1;
+}
+}
+return -1;
+}
+public static void main(String[] args){
+ Scanner sc=new Scanner(System.in);
+ System.out.println("Enter text:");
+ String text=sc.nextLine().toLowerCase();
+ System.out.println("Enter pattern:");
+ String pattern=sc.nextLine().toLowerCase();
+ int res=find(text,pattern);
+ if(res>=0)
+ System.out.println("Pattern found at index:"+res);
+ else
+ System.out.println("Pattern not found");
+ }
+}
